@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Neuralsy.WebCrawler.Core/Neuralsy.WebCrawler.Core.csproj" />
+  <Project Path="Neuralsy.WebCrawler.Tests/Neuralsy.WebCrawler.Tests.csproj" />
+</Solution>
