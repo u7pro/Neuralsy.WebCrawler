@@ -58,4 +58,16 @@ public class CrawlingTests
 
         Assert.That(emails, Is.EquivalentTo(expectedEmails));
     }
+
+    [Test]
+    public void InvalidDepthThrowsException(
+        [Values("./index.html")] string url,
+        [Random(int.MinValue, -2, 5)] int maxDepth)
+    {
+        var browser = new InMemoryWebBrowser(_pages);
+        var pageParser = new PageParser();
+        var crawler = new Crawler(browser, pageParser);
+
+        Assert.ThrowsAsync<ArgumentOutOfRangeException>(async () => await crawler.GetEmailsAsync(url, maxDepth));
+    }
 }
