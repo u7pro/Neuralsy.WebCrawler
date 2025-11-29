@@ -65,9 +65,9 @@ public class Crawler(IWebBrowser webBrowser, IPageParser pageParser) : ICrawler
             }
 
             // push info of crawling on references pages 
-            foreach (var resultVisitedUrl in parseResult.Urls)
+            foreach (var referencedUrl in parseResult.Urls)
             {
-                var childContext = (resultVisitedUrl, maximumDepth);
+                var childContext = (referencedUrl, maximumDepth);
                 await crawlingChannel.Writer.WriteAsync(childContext);
             }
         }
